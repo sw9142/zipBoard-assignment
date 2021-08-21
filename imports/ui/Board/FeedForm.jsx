@@ -12,15 +12,16 @@ export const FeedForm = () => {
   };
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log("submit click!");
+
     BoardCollection.insert({
       text: Text,
       user: user,
     });
+    setText("");
   };
   return (
     <div className="feedform-container">
-      <div className="feedform-title">what's on your mind?</div>
+      <div className="feedform-title">What's on your mind?</div>
       <form className="feedform-form" onSubmit={onSubmitHandler}>
         <textarea
           className="feedform-textarea"

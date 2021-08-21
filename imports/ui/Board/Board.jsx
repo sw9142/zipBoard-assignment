@@ -8,13 +8,10 @@ import { useHistory } from "react-router-dom";
 
 export const Board = () => {
   const user = useTracker(() => Meteor.user());
-  console.log("user in board:", user);
   const history = useHistory();
   const feeds = useTracker(() => BoardCollection.find({}).fetch());
-  console.log("feeds: ", feeds);
 
   const onClickHandler = () => {
-    console.log("logout click");
     Meteor.logout();
     history.push("/");
   };
@@ -29,13 +26,18 @@ export const Board = () => {
           onClick={onClickHandler}
         />
       </div>
-      <div className="greeting">Board</div>
+      <div className="greeting">Discussion Board</div>
       <FeedForm />
       <ul>
         {feeds &&
           feeds.map((feed, index) => (
             <div key={index}>
-              <Feeds id={feed._id} text={feed.text} user={feed.user} />
+              <Feeds
+                id={feed._id}
+                text={feed.text}
+                emailId={feed.user.emails[0].address.split("@")}
+                isOwner={feed.user._id === user._id}
+              />
             </div>
           ))}
       </ul>

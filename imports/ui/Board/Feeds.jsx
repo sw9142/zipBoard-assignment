@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { BoardCollection } from "/imports/api/BoardCollection";
 
-export const Feeds = ({ id, text, user }) => {
-  console.log("baord collection: ", BoardCollection);
+export const Feeds = ({ id, text, emailId, isOwner }) => {
   const [NewText, setNewText] = useState("");
   const [IsEdit, setIsEdit] = useState(false);
+
   const onClickHandler = (e) => {
     if (e.target.name === "edit") {
       setIsEdit(true);
     } else if (e.target.name === "delete") {
+      BoardCollection.remove({ _id: id });
     }
   };
 
@@ -17,7 +18,6 @@ export const Feeds = ({ id, text, user }) => {
   };
 
   const onUpdateHandler = (e) => {
-    console.log("e.target.name: ", e.target.name);
     if (e.target.name === "update") {
       e.preventDefault();
       BoardCollection.update(
@@ -42,7 +42,7 @@ export const Feeds = ({ id, text, user }) => {
   return (
     <div className="feeds-container">
       <li className="feeds-textbox">
-        <div className="user-id"> {user._id} </div>
+        <div className="user-id"> {emailId[0]} </div>
 
         {IsEdit ? (
           <>
@@ -72,13 +72,13 @@ export const Feeds = ({ id, text, user }) => {
         ) : (
           <>
             <div className="user-text"> {text} </div>
-            {user && (
+            {isOwner && (
               <div className="feeds-btns">
                 <button onClick={onClickHandler} name="edit">
-                  edit
+                  Edit
                 </button>
                 <button onClick={onClickHandler} name="delete">
-                  delete
+                  Delete
                 </button>
               </div>
             )}

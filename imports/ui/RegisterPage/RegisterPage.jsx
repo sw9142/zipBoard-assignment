@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 
 export const RegisterPage = () => {
   const history = useHistory();
-
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [Msg, setMsg] = useState("");
@@ -25,7 +24,6 @@ export const RegisterPage = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log("submit click!");
     Accounts.createUser(
       {
         email: Email,
@@ -36,7 +34,6 @@ export const RegisterPage = () => {
           setMsg(err.reason);
           console.log("err: ", err);
         } else {
-          console.log("success!");
           history.push("/");
         }
       }
@@ -50,7 +47,7 @@ export const RegisterPage = () => {
       <form className="task-form" onSubmit={onSubmitHandler}>
         <label>Email</label>
         <input
-          type="text"
+          type="email"
           name="email"
           value={Email}
           placeholder="Email"

@@ -16,9 +16,7 @@ body {
 }
 
 .loginpage {
-  max-width: 500px;
   font-family: "Open Sans", sans-serif;
-  margin: 10rem auto;
 }
 .greeting {
   font-size: 24px;
@@ -27,17 +25,22 @@ body {
   text-align: center;
   color: rgb(53, 53, 53);
   margin: 2rem;
+  margin-top: 8rem;
 }
 
 .message {
   color: red;
   padding: 0, 1rem;
   font-weight: bold;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .task-form {
   display: flex;
   flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .task-form label {
@@ -84,9 +87,7 @@ body {
 }
 
 .registerpage {
-  max-width: 500px;
   font-family: "Open Sans", sans-serif;
-  margin: 10rem auto;
 }
 
 .gotologin {
@@ -99,7 +100,6 @@ body {
   background: none;
   text-decoration: underline;
   color: rgb(236, 131, 20);
-  font-weight: 600;
 }
 
 .topbar {
@@ -108,7 +108,8 @@ body {
   height: auto;
   padding: 1rem;
   border-bottom: 1px solid rgb(155, 151, 151);
-  text-align: end;
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn-logout {
@@ -123,7 +124,9 @@ body {
 }
 
 .feedform-container {
-  padding: 1rem;
+  padding: 1rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .feedform-form {
@@ -144,6 +147,7 @@ body {
   width: 100%;
   resize: none;
   border-radius: 3px;
+  padding: 1rem;
 }
 
 .feedform-submit {
@@ -159,12 +163,15 @@ body {
 .feeds-container {
   padding: 1rem;
   display: flex;
-  width: 100%;
+  max-width: 600px;
   justify-content: space-between;
+  margin: 0 auto;
 }
 
 .feeds-textbox {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .user-id {
@@ -173,9 +180,13 @@ body {
 
 .user-text {
   background-color: white;
-
+  width: 100%;
   padding: 0.5rem;
   font-size: 14px;
+}
+
+.feeds-btns {
+  text-align: center;
 }
 
 .feeds-btns button {
