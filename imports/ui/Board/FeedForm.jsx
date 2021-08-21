@@ -6,15 +6,13 @@ import { useTracker } from "meteor/react-meteor-data";
 export const FeedForm = () => {
   const [Text, setText] = useState("");
   const user = useTracker(() => Meteor.user());
-  console.log("user: ", user);
 
   const onChangeHandler = (e) => {
-    console.log("e.target.value: ", e.target.value);
     setText(e.target.value);
   };
   const onSubmitHandler = (e) => {
     e.preventDefault();
-
+    console.log("submit click!");
     BoardCollection.insert({
       text: Text,
       user: user,

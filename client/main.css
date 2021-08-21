@@ -1,4 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 10px;
   font-family: sans-serif;
+  height: 100vw;
+  background-color: #fafafa;
+}
+
+.loginpage {
+  max-width: 500px;
+  font-family: "Open Sans", sans-serif;
+  margin: 10rem auto;
+}
+.greeting {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-align: center;
+  color: rgb(53, 53, 53);
+}
+
+.message {
+  color: red;
+  padding: 0, 1rem;
+  font-weight: bold;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form label {
+  color: rgb(98, 98, 98);
+  margin: 5px 0;
+  font-weight: 500;
+  text-shadow: 0.5px 0.5px 0.5px rgb(155, 151, 151);
+}
+
+.task-form input {
+  padding: 10px;
+  color: rgb(44, 44, 44);
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.btn-container {
+  width: 100%;
+  text-align: end;
+}
+
+.task-form button {
+  border: none;
+  background-color: rgb(43, 222, 115);
+  color: white;
+  font-weight: bold;
+  width: 100px;
+  border-radius: 3px;
+  margin: 1rem 0;
+  padding: 5px 10px;
+}
+
+.createaccount {
+  text-align: center;
+  font-size: 13px;
+}
+
+.btn-createaccount {
+  border: none;
+  background: none;
+  text-decoration: underline;
+  color: rgb(236, 131, 20);
+  font-weight: 500;
+}
+
+.registerpage {
+  max-width: 500px;
+  font-family: "Open Sans", sans-serif;
+  margin: 10rem auto;
+}
+/* .register-greeting {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-align: center;
+  color: rgb(53, 53, 53);
+}
+
+.register-message {
+  color: red;
+  padding: 0, 1rem;
+  font-weight: bold;
+}
+
+.register-task-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-task-form label {
+  color: rgb(98, 98, 98);
+  margin: 5px 0;
+  font-weight: 500;
+  text-shadow: 0.5px 0.5px 0.5px rgb(155, 151, 151);
+}
+
+.register-task-form input {
+  padding: 10px;
+  color: rgb(44, 44, 44);
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.register-btn-container {
+  width: 100%;
+  text-align: end;
+}
+
+.register-task-form button {
+  border: none;
+  background-color: rgb(43, 222, 115);
+  color: white;
+  font-weight: bold;
+  width: 200px;
+  border-radius: 3px;
+  margin: 1rem 0;
+  padding: 7px 10px;
+} */
+
+.gotologin {
+  text-align: center;
+  font-size: 13px;
+}
+
+.btn-gotologin {
+  border: none;
+  background: none;
+  text-decoration: underline;
+  color: rgb(236, 131, 20);
+  font-weight: 600;
+}
+
+.topbar {
+  width: 100%;
+  border: 1px black;
+  height: auto;
+  padding: 1rem;
+  border-bottom: 1px solid rgb(155, 151, 151);
+  text-align: end;
+}
+
+.btn-logout {
+  border: none;
+  background-color: rgb(43, 222, 115);
+  color: white;
+  font-weight: bold;
+  width: 100px;
+  border-radius: 3px;
+  padding: 7px 10px;
+  cursor: pointer;
 }

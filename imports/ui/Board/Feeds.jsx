@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
-export const Feeds = ({ key, text, user }) => {
+export const Feeds = ({ id, text, user }) => {
   return (
-    <li>
-      {user.emails[0].address} {text}
-    </li>
+    <>
+      <li>
+        {user.email} {text}
+      </li>
+      <button>edit</button>
+      <button>delete</button>
+    </>
   );
 };

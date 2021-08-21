@@ -8,7 +8,7 @@ export const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <div style={{ padding: 20, border: "5px solid gray" }}>
+        <div>
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route path="/board" component={Board} />

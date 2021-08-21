@@ -5,9 +5,11 @@ import { Board } from "../Board/Board";
 
 export const LandingPage = ({ history }) => {
   const user = useTracker(() => Meteor.user());
+  console.log("are you login?: ", user);
 
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [Msg, setMsg] = useState("");
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -24,7 +26,14 @@ export const LandingPage = ({ history }) => {
   };
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    Meteor.loginWithPassword(Email, Password);
+    Meteor.loginWithPassword(Email, Password, (err) => {
+      if (err) {
+        console.log(err);
+        setMsg(err.reason);
+      } else {
+        history.push("/board");
+      }
+    });
   };
 
   return (
@@ -32,29 +41,42 @@ export const LandingPage = ({ history }) => {
       {user ? (
         <Board />
       ) : (
-        <>
+        <div className="loginpage">
+          <div className="greeting">
+            Login to your zipBoard Assginment account
+          </div>
+          <div className="message"> {Msg} </div>
           <form className="task-form" onSubmit={onSubmitHandler}>
+            <label>Email</label>
             <input
               type="text"
               name="email"
               value={Email}
-              placeholder="email"
+              placeholder="Email"
               onChange={onChangeHandler}
               required
             />
+            <label>Password</label>
             <input
               type="password"
-              placeholder="password"
+              placeholder="Password"
               name="password"
               value={Password}
               onChange={onChangeHandler}
               required
             />
-
-            <button type="submit">Log In</button>
+            <div className="btn-container">
+              <button type="submit">Log In</button>
+            </div>
           </form>
-          <button onClick={onClickHandler}>don't have account yet?</button>
-        </>
+
+          <div className="createaccount">
+            Don't have an account yet?
+            <button className="btn-createaccount" onClick={onClickHandler}>
+              Create an account
+            </button>
+          </div>
+        </div>
       )}
     </>
   );

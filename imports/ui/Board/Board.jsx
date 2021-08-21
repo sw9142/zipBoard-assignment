@@ -1,26 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTracker } from "meteor/react-meteor-data";
 import { BoardCollection } from "/imports/api/BoardCollection";
-import { Feeds } from "./FeedForm";
+import { Feeds } from "./Feeds";
 import { FeedForm } from "./FeedForm";
 
-export const Board = () => {
+export const Board = ({ history }) => {
   const feeds = useTracker(() => BoardCollection.find({}).fetch());
-  console.log("feeds: ", feeds[0]);
+  console.log("feeds: ", feeds);
 
   const onClickHandler = () => {
+    console.log("logout click");
     Meteor.logout();
+    history.push("/");
   };
+
   return (
     <>
-      <input type="submit" value="logout" onClick={onClickHandler} />
-      <h1>Board</h1>
+      <div className="topbar">
+        <input
+          type="submit"
+          className="btn-logout"
+          value="logout"
+          onClick={onClickHandler}
+        />
+      </div>
+      <div className="greeting">Board</div>
       <FeedForm />
-      {/* <ul>
-        {feeds.map((feed) => (
-          <Feeds key={feed._id} text={feed.text} user={feed.user} />
-        ))}
-      </ul> */}
+      <ul>
+        {feeds &&
+          feeds.map((feed, index) => (
+            <div key={index}>
+              <Feeds id={feed._id} text={feed.text} user={feed.user} />
+            </div>
+          ))}
+      </ul>
     </>
   );
 };

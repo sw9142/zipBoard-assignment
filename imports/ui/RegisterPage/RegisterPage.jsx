@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Meteor } from "meteor/meteor";
 import { Accounts } from "meteor/accounts-base";
 
-export const RegisterPage = () => {
+export const RegisterPage = ({ history }) => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [Msg, setMsg] = useState("");
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -16,38 +16,64 @@ export const RegisterPage = () => {
     }
   };
 
+  const onClickHandler = () => {
+    history.push("/");
+  };
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log("submit click!");
-    Accounts.createUser({
-      email: Email,
-      password: Password,
-    });
+    Accounts.createUser(
+      {
+        email: Email,
+        password: Password,
+      },
+      (err) => {
+        if (err) {
+          setMsg(err.reason);
+          console.log("err: ", err);
+        } else {
+          console.log("success!");
+          history.push("/");
+        }
+      }
+    );
   };
 
   return (
-    <>
-      <h1>register page</h1>
+    <div className="registerpage">
+      <div className="greeting">Create a free zipBoard Assginment account</div>
+      <div className="message"> {Msg} </div>
       <form className="task-form" onSubmit={onSubmitHandler}>
+        <label>Email</label>
         <input
           type="text"
           name="email"
           value={Email}
-          placeholder="email"
+          placeholder="Email"
           onChange={onChangeHandler}
           required
         />
+        <label>Password</label>
         <input
           type="password"
-          placeholder="password"
+          placeholder="Password"
           name="password"
           value={Password}
           onChange={onChangeHandler}
           required
         />
-
-        <button type="submit">Sign UP</button>
+        <div className="btn-container">
+          <button type="submit">Create Account</button>
+        </div>
       </form>
-    </>
+
+      <div className="gotologin">
+        Already have an account?
+        <button className="btn-gotologin" onClick={onClickHandler}>
+          Log in
+        </button>
+      </div>
+    </div>
   );
 };
