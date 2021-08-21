@@ -19,11 +19,16 @@ export const FeedForm = () => {
     });
   };
   return (
-    <div>
-      {/* {user.emails[0].address} */}
-      <form onSubmit={onSubmitHandler}>
-        <textarea rows="8" value={Text} onChange={onChangeHandler}></textarea>
-        <input type="submit" value="submit" />
+    <div className="feedform-container">
+      <div className="feedform-title">what's on your mind?</div>
+      <form className="feedform-form" onSubmit={onSubmitHandler}>
+        <textarea
+          className="feedform-textarea"
+          rows="8"
+          value={Text}
+          onChange={onChangeHandler}
+        ></textarea>
+        <input className="feedform-submit" type="submit" value="Submit" />
       </form>
     </div>
   );

@@ -1,10 +1,15 @@
 import React from "react";
 import { useTracker } from "meteor/react-meteor-data";
+import { Meteor } from "meteor/meteor";
 import { BoardCollection } from "/imports/api/BoardCollection";
 import { Feeds } from "./Feeds";
 import { FeedForm } from "./FeedForm";
+import { useHistory } from "react-router-dom";
 
-export const Board = ({ history }) => {
+export const Board = () => {
+  const user = useTracker(() => Meteor.user());
+  console.log("user in board:", user);
+  const history = useHistory();
   const feeds = useTracker(() => BoardCollection.find({}).fetch());
   console.log("feeds: ", feeds);
 

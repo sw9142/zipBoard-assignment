@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Accounts } from "meteor/accounts-base";
+import { useHistory } from "react-router-dom";
 
-export const RegisterPage = ({ history }) => {
+export const RegisterPage = () => {
+  const history = useHistory();
+
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [Msg, setMsg] = useState("");

@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { Meteor } from "meteor/meteor";
-import { useTracker } from "meteor/react-meteor-data";
-import { Board } from "../Board/Board";
+import { useHistory } from "react-router-dom";
 
-export const LandingPage = ({ history }) => {
-  const user = useTracker(() => Meteor.user());
-  console.log("are you login?: ", user);
-
+export const LandingPage = () => {
+  const history = useHistory();
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [Msg, setMsg] = useState("");
@@ -38,46 +35,42 @@ export const LandingPage = ({ history }) => {
 
   return (
     <>
-      {user ? (
-        <Board />
-      ) : (
-        <div className="loginpage">
-          <div className="greeting">
-            Login to your zipBoard Assginment account
-          </div>
-          <div className="message"> {Msg} </div>
-          <form className="task-form" onSubmit={onSubmitHandler}>
-            <label>Email</label>
-            <input
-              type="text"
-              name="email"
-              value={Email}
-              placeholder="Email"
-              onChange={onChangeHandler}
-              required
-            />
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={Password}
-              onChange={onChangeHandler}
-              required
-            />
-            <div className="btn-container">
-              <button type="submit">Log In</button>
-            </div>
-          </form>
-
-          <div className="createaccount">
-            Don't have an account yet?
-            <button className="btn-createaccount" onClick={onClickHandler}>
-              Create an account
-            </button>
-          </div>
+      <div className="loginpage">
+        <div className="greeting">
+          Login to your zipBoard Assginment account
         </div>
-      )}
+        <div className="message"> {Msg} </div>
+        <form className="task-form" onSubmit={onSubmitHandler}>
+          <label>Email</label>
+          <input
+            type="text"
+            name="email"
+            value={Email}
+            placeholder="Email"
+            onChange={onChangeHandler}
+            required
+          />
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={Password}
+            onChange={onChangeHandler}
+            required
+          />
+          <div className="btn-container">
+            <button type="submit">Log In</button>
+          </div>
+        </form>
+
+        <div className="createaccount">
+          Don't have an account yet?
+          <button className="btn-createaccount" onClick={onClickHandler}>
+            Create an account
+          </button>
+        </div>
+      </div>
     </>
   );
 };
