@@ -28,7 +28,7 @@ export const Board = () => {
       </div>
       <div className="greeting">Discussion Board</div>
       <FeedForm />
-      <ul>
+      <ul className="feedslist">
         {feeds &&
           feeds.map((feed, index) => (
             <div key={index}>

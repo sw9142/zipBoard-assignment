@@ -71,11 +71,12 @@ body {
   border-radius: 3px;
   margin: 1rem 0;
   padding: 5px 10px;
+  font-size: 17px;
 }
 
 .createaccount {
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .btn-createaccount {
@@ -84,6 +85,7 @@ body {
   text-decoration: underline;
   color: rgb(236, 131, 20);
   font-weight: 500;
+  font-size: 15px;
 }
 
 .registerpage {
@@ -92,7 +94,7 @@ body {
 
 .gotologin {
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .btn-gotologin {
@@ -100,6 +102,7 @@ body {
   background: none;
   text-decoration: underline;
   color: rgb(236, 131, 20);
+  font-size: 15px;
 }
 
 .topbar {
@@ -121,10 +124,11 @@ body {
   border-radius: 3px;
   padding: 7px 10px;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .feedform-container {
-  padding: 1rem 2rem;
+  padding: 1rem;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -195,4 +199,8 @@ body {
   background-color: white;
   border-radius: 3px;
   padding: 2px 4px;
+}
+
+.feedslist {
+  padding-bottom: 5rem;
 }
