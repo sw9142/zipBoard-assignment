@@ -16,6 +16,7 @@ export const FeedForm = () => {
     BoardCollection.insert({
       text: Text,
       user: user,
+      createdAt: new Date(),
     });
     setText("");
   };

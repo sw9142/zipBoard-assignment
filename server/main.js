@@ -16,10 +16,4 @@ Meteor.startup(() => {
       password: SEED_PASSWORD,
     });
   }
-  // if (BoardCollection.find().count() === 0) {
-  //   insertFeed({
-  //     text: "first text",
-  //     user: { _id: "1234", emails: "1234@gmail.com" },
-  //   });
-  // }
 });

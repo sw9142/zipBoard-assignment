@@ -9,7 +9,10 @@ import { useHistory } from "react-router-dom";
 export const Board = () => {
   const user = useTracker(() => Meteor.user());
   const history = useHistory();
-  const feeds = useTracker(() => BoardCollection.find({}).fetch());
+  const feeds = useTracker(() =>
+    BoardCollection.find({}, { sort: { createdAt: -1 } }).fetch()
+  );
+  console.log("feeds: ", feeds);
 
   const onClickHandler = () => {
     Meteor.logout();
