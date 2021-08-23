@@ -15,15 +15,20 @@ export const App = () => {
         {user ? <Redirect to="board" /> : <Redirect to="/" />}
         <div>
           <Switch>
-            <Route path="/board">
-              <Board />
-            </Route>
-            <Route exact path="/">
-              <LandingPage />
-            </Route>
-            <Route path="/reg">
-              <RegisterPage />
-            </Route>
+            {user ? (
+              <Route path="/board">
+                <Board />
+              </Route>
+            ) : (
+              <>
+                <Route exact path="/">
+                  <LandingPage />
+                </Route>
+                <Route path="/reg">
+                  <RegisterPage />
+                </Route>
+              </>
+            )}
           </Switch>
         </div>
       </BrowserRouter>
